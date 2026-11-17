@@ -14,7 +14,7 @@
 
 - Tener una cuenta propia vinculada a WhatsApp Web y una conexión a Internet.
 - Disponer de una sesión iniciada por el titular. Si aparece el inicio de sesión, el titular debe completarlo manualmente.
-- Para usar una ventana de Chrome ya abierta, habilitar la depuración remota en `chrome://inspect/#remote-debugging` y aceptar el aviso de conexión de Chrome. Si WhatsApp pide vincular un dispositivo, el titular debe hacerlo desde su teléfono.
+- Para usar una ventana de Chrome ya abierta, activar **Allow remote debugging for this browser instance** en `chrome://inspect/#remote-debugging` y aceptar el aviso de conexión de Chrome si aparece. Si WhatsApp pide vincular un dispositivo, el titular debe hacerlo desde su teléfono.
 
 ## Criterios de aceptación y recorrido
 
@@ -112,6 +112,7 @@ La carpeta `capturas/` debe existir. Si mueves la HU, actualiza la constante `ou
 
 ## Evidencia y limitaciones
 
+- Al primer intento, **Allow remote debugging for this browser instance** estaba desactivada en `chrome://inspect/#remote-debugging`. Aunque WhatsApp Web ya estaba abierto con una sesión iniciada, Chrome no exponía la conexión local que necesitaba Playwright. Una vez activada la opción, Playwright se conectó a la pestaña existente y tomó las cuatro capturas sin instalar software adicional ni volver a vincular WhatsApp.
 - La interfaz observada combina etiquetas en español e inglés. Si cambia el idioma o la versión de WhatsApp Web, puede ser necesario ajustar los nombres accesibles y los contenedores de captura.
 - La visibilidad y la duración se observaron, pero no se abrieron sus opciones ni se validaron sus efectos.
 - No se ejecutaron el guardado, la eliminación del About, la sincronización con el teléfono ni comprobaciones desde otras cuentas.
